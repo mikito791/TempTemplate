@@ -55,11 +55,15 @@ public:
 	T GetX() { return(x); }
 	void SetX(T _x) { x = _x; }
 	void PrintVec() { cout << "(x, y)=(" << x << "," << y << ")" << endl; }
+	T Length()const { return(static_cast<T>sqrt(x * x + y * y)); }
+	bool operator>(const Vec2<T>& other)
+	{
+		return(this->Length() > other.Length());
+	}
 };
 //ベクトルの長さをT型で返すメンバ関数を作る
 //ベクトルの長さで比較するー＞演算子をオーバーロ－ド
 //ベクトルの長さを比べて長い方表示して本当にあっているか確認（tMaxに入れる)
-template<typename T>
 int main()
 {
 	//int var1 = 10;
