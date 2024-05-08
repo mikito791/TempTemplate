@@ -55,7 +55,7 @@ public:
 	T GetX() { return(x); }
 	void SetX(T _x) { x = _x; }
 	void PrintVec() { cout << "(x, y)=(" << x << "," << y << ")" << endl; }
-	T Length()const { return(static_cast<T>sqrt(x * x + y * y)); }
+	T Length()const { return((T)sqrt(x * x + y * y)); }
 	bool operator>(const Vec2<T>& other)
 	{
 		return(this->Length() > other.Length());
@@ -82,10 +82,18 @@ int main()
 	////double res3 = myMax(var5, var6);
 	//double res3 = tMax<double>(var5, var6);
 	//cout << "tMax var5 var6 : " << res3 << endl;
-	Vec2 <double>v;
-	v.x = 2.3;
-	v.y = 3.5;
-	v.PrintVec();
+	Vec2 <double>v1;
+	v1.x = 2.3;
+	v1.y = 3.5;
+	Vec2<double>v2;
+	v2.x = 5.5;
+	v2.y = 10.6;
+	/*if (v1 > v2)
+		v1.PrintVec();
+	else
+		v2.PrintVec();*/
+	Vec2<double>res = tMax(v1, v2);
+	res.PrintVec();
 
 	return 0;
 }
